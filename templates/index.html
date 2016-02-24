@@ -2,14 +2,23 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Hello, World!</title>
+		<title>Day 8 Flask Demo</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div>
-  			<h1>Hello, World!</h1>
+  		  <h1>User Input</h1>
 		</div>
+		<div>
+		  <h2>Please enter a stock ticker eq. GOOG, and check desired features.</h2>
+		</div>
+		<form id='stockinfo' action='plot' method='post'>
+		  Ticker symbol: <input type='text' name='tickerSymbol'>
+		  <input type='checkbox' name='Closing Price' value='Closing Price'> 
+		  <input type='checkbox' name='Adjusted Closing Price' value='Adjusted Closing Price'> 
+		  <input type='checkbox' name='Opening Price' value='Opening Price'> 
+		  <input type='checkbox' name='Adjusted Opening Price' value='Adjusted Opening Price'>
 	</body>
 </html>
