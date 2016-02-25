@@ -6,12 +6,12 @@ from bokeh.resources import CDN
 import pandas as pd
 import numpy as np
 import requests
-import itertools
+#import itertools
 
 app = Flask(__name__)
 app.vars = {}
 global p
-colors = itertools.cycle(['r','b','g','c'])
+#colors = itertools.cycle(['r','b','g','c'])
 
 @app.route('/')
 def main():
