@@ -33,7 +33,7 @@ def index():
         for i in ['closingPrice', 'adjustedClosingPrice', 'openingPrice', 'adjustedOpeningPrice']:
             if request.form.get(i):
                 app.vars['plot'] = request.form[i]
-                p.line(np.array(df['Date'], dtype=np.datetime64),df[app.vars['plot']],color=next(colors))
+                p.line(np.array(df['Date'], dtype=np.datetime64),df[app.vars['plot']])
                 #p.line([1,2,3,4],[5,6,7,8])
         script, div = components(p,CDN) 
         return render_template('plot.html',div=div,script=script)                                      
