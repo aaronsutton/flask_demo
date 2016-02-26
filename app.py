@@ -22,7 +22,7 @@ def index():
     if request.method == 'GET':
         return render_template('index.html')
     else:
-        app.vars['tickerSymbol'] = request.form['tickerSymbol']
+	app.vars['tickerSymbol'] = request.form['tickerSymbol']
         address = 'https://www.quandl.com/api/v3/datasets/WIKI/' + app.vars['tickerSymbol'] + '.json'
         r = requests.get(address)
         j = json.loads(r.content)
