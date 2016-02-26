@@ -11,7 +11,7 @@ import itertools
 app = Flask(__name__)
 app.vars = {}
 global p
-colors = itertools.cycle(['red','navy','green','cyan'])
+colors = itertools.cycle(['blue','green','gold','red'])
 
 @app.route('/')
 def main():
@@ -33,11 +33,9 @@ def index():
         for i in ['closingPrice', 'adjustedClosingPrice', 'openingPrice', 'adjustedOpeningPrice']:
             if request.form.get(i):
                 app.vars['plot'] = request.form[i]
-                p.line(np.array(df['Date'], dtype=np.datetime64),df[app.vars['plot']], color=next(colors))
-                #p.line([1,2,3,4],[5,6,7,8])
+                p.line(np.array(df['Date'], dtype=np.datetime64),df[app.vars['plot']], color=next(colors),legend=app.vars['tickerSymbol']+': '+app.vars['plot'])
         script, div = components(p,CDN) 
         return render_template('plot.html',div=div,script=script)                                      
 
 if __name__ == '__main__':
     app.run(port=33507)
-    app.debug=True
