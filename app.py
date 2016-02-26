@@ -36,7 +36,7 @@ def index():
 
         df.set_index('Date')
         #return 'The stock symbol is {}'.format(app.vars['tickerSymbol'])
-	p = figure(title='Quandl Stock Info for {}'.format(app.vars['tickerSymbol']))
+	p = figure(title='Quandl Stock Info for {}'.format(app.vars['tickerSymbol']),x_axis_type='datetime')
         for i in ['closingPrice', 'adjustedClosingPrice', 'openingPrice', 'adjustedOpeningPrice']:
             if request.form.get(i):
                 app.vars['plot'] = request.form[i]
