@@ -26,7 +26,14 @@ def index():
         address = 'https://www.quandl.com/api/v3/datasets/WIKI/' + app.vars['tickerSymbol'] + '.json'
         r = requests.get(address)
         j = json.loads(r.content)
-        df = pd.DataFrame(j['dataset']['data'], columns=j['dataset']['column_names'])
+        
+	while True:
+		try:
+			df = pd.DataFrame(j['dataset']['data'], columns=j['dataset']['column_names'])
+			break
+		except KeyError:
+			return render_template('error.html')
+
         df.set_index('Date')
         #return 'The stock symbol is {}'.format(app.vars['tickerSymbol'])
 	p = figure(title='Quandl Stock Info for {}'.format(app.vars['tickerSymbol']))
